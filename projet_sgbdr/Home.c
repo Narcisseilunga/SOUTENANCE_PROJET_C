@@ -30,6 +30,23 @@ void insererDonnee(Table* table, void* donnees[]) {
             if (table->champs[i].type == ENTIER) {
                  int* val = (int*)malloc(sizeof(int));
             *val = *((int*)donnees[i]);
+                table->donnees[table->nombreLignes][i] = val;
+            } else {
+                char* val = (char*)malloc(50 * sizeof(char));
+                strcpy(val, (char*)donnees[i]);
+                table->donnees[table->nombreLignes][i] = val;
+            }
+        }
+        table->nombreLignes++;
+    } else {
+        printf("Nombre maximum de lignes atteint.\n");
+    }
+}
+
+void afficherDonnees(Table* table) {
+    for (int i = 0; i < table->nombreLignes; i++) {
+        for (int j = 0; j < table->nombreChamps; 
+
 
 
 
