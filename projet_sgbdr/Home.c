@@ -45,7 +45,26 @@ void insererDonnee(Table* table, void* donnees[]) {
 
 void afficherDonnees(Table* table) {
     for (int i = 0; i < table->nombreLignes; i++) {
-        for (int j = 0; j < table->nombreChamps; 
+        for (int j = 0; j < table->nombreChamps; j++) {
+            if (table->champs[j].type == ENTIER) {
+                printf("%d ", *((int*)table->donnees[i][j]));
+            } else {
+                printf("%s ", (char*)table->donnees[i][j]);
+            }
+        }
+        printf("\n");
+    }
+}
+
+int main() {
+    Table* table = creerTable("Etudiants");
+    ajouterChamp(table, "ID", ENTIER);
+    ajouterChamp(table, "Nom", CHAINE);
+
+    int id = 1;
+    char nom[] = "Alice";
+    void* donnees1[] = {&id, nom};
+
 
 
 
