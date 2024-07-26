@@ -28,6 +28,9 @@ void insererDonnee(Table* table, void* donnees[]) {
     if (table->nombreLignes < MAX_LIGNES) {
         for (int i = 0; i < table->nombreChamps; i++) {
             if (table->champs[i].type == ENTIER) {
+                 int* val = (int*)malloc(sizeof(int));
+            *val = *((int*)donnees[i]);
+
 
 
 
