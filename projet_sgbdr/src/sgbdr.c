@@ -79,3 +79,13 @@ void interpret_command(char *command) {
                 new_data[i] = value;
             }
             i++;
+ }
+        
+        update_data(table_name, condition, new_data);
+    } else if (strcmp(token, "TRIER_DONNEES") == 0) {
+        char *table_name = strtok(NULL, " ");
+        char *column_name = strtok(NULL, " ");
+        sort_data(table_name, column_name);
+    } else if (strcmp(token, "JOINDRE_TABLES") == 0) {
+        char *table1_name = strtok(NULL, " ");
+        char *table2_name = strtok
