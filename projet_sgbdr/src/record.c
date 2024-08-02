@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "record.h"
-#include "database.h"
+#include "include/record.h"
+
 Record table_records[MAX_TABLES];
 
 void insert_data(char *table_name, RecordData data[]) {
