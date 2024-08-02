@@ -139,10 +139,6 @@ void update_data(char *table_name, char *condition, void **new_data) {
 }
 
 
-
-
-
-
 void sort_data(char *table_name, char *column_name) {
     Table *table = find_table(table_name);
     if (table == NULL) {
