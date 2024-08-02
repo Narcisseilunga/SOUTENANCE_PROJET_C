@@ -110,6 +110,7 @@ void update_data(char *table_name, char *condition, void **new_data) {
     sscanf(condition, "%[^=]=%s", column_name, value);
 
     int column_index = -1;
+    
     for (int i = 0; i < table->column_count; i++) {
         if (strcmp(table->columns[i].name, column_name) == 0) {
             column_index = i;
@@ -183,14 +184,8 @@ void sort_data(char *table_name, char *column_name) {
 
     printf("Table %s triée par %s.\n", table_name, column_name);
 }
-int compare_values(void *a, void *b, ColumnType type) {
-    if (type == INT) {
-        return (*(int *)a - *(int *)b);
-    } else if (type == STRING || type == DATE) {
-        return strcmp((char *)a, (char *)b);
-    }
-    return 0;
-}
+    
+
 
 void join_tables(char *table1_name, char *table2_name, char *join_column) {
     Table *table1 = find_table(table1_name);

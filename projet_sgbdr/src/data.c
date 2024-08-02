@@ -4,6 +4,7 @@
 #include <string.h>
 #include "sgbdr.h"
 
+extern Table *database;
 void insert_data(char *table_name, void **data) {
     Table *table = find_table(table_name);
     if (table == NULL) {

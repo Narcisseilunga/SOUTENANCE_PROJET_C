@@ -1,9 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "include/record.h"
+#include "record.h"
 
 Record table_records[MAX_TABLES];
+int table_count;
+extern Table *database;
 
 void insert_data(char *table_name, RecordData data[]) {
     for (int i = 0; i < table_count; i++) {
