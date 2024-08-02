@@ -23,7 +23,7 @@ void create_table(char *name, Column *columns, int column_count) {
     
     tables[table_count].data = (void **)malloc(MAX_COLUMNS * MAX_STRING_LENGTH * sizeof(void *));
     table_count++;
-    printf("Table '%s' créée avec succès.\n", name);
+    printf("Table '%s' creee avec succes.\n", name);
 }
 
 Table* find_table(char *name) {

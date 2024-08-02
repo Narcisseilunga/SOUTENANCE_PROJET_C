@@ -4,7 +4,12 @@
 #define MAX_TABLES 10
 #define MAX_FIELDS 10
 
-typedef enum { INT, STRING } FieldType;
+typedef enum { 
+    INT, 
+    STRING,
+    DECIMAL,
+    BINAIRE,
+    DATE } FieldType;
 
 typedef struct {
     char name[30];

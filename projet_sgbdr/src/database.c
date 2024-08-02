@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "database.h"
+#include "include/database.h"
+
 
 Table database[MAX_TABLES];
 int table_count = 0;
@@ -27,7 +28,7 @@ void add_field(char *table_name, char *field_name, FieldType type) {
             strcpy(database[i].fields[database[i].field_count].name, field_name);
             database[i].fields[database[i].field_count].type = type;
             database[i].field_count++;
-            printf("Champ '%s' ajouté à la table '%s'.\n", field_name, table_name);
+            printf("Champ '%s' ajoute à la table '%s'.\n", field_name, table_name);
             return;
         }
     }
@@ -37,7 +38,7 @@ void add_field(char *table_name, char *field_name, FieldType type) {
 void display_data(char *table_name) {
     for (int i = 0; i < table_count; i++) {
         if (strcmp(database[i].name, table_name) == 0) {
-            printf("Affichage des données de la table '%s':\n", table_name);
+            printf("Affichage des donnees de la table '%s':\n", table_name);
             for (int k = 0; k < database[i].field_count; k++) {
                 if (database[i].fields[k].type == INT) {
                     printf("%s: INT\n", database[i].fields[k].name);
