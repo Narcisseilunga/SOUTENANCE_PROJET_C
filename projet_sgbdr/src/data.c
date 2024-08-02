@@ -294,3 +294,22 @@ void select_data(char *table_name, char *condition) {
         }
     }
 }
+int compare_values(void *a, void *b, ColumnType type) {
+    if (type == INT) {
+        return (*(int *)a - *(int *)b);
+    } else if (type == STRING || type == DATE) {
+        return strcmp((char *)a, (char *)b);
+    }
+    return 0;
+}
+
+Table *find_table(char *name) {
+    Table *current_table = database;
+    while (current_table != NULL) {
+        if (strcmp(current_table->name, name) == 0) {
+            return current_table;
+        }
+        current_table = current_table->next;
+    }
+    return NULL;
+}
