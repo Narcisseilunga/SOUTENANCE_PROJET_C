@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "sgbdr.h"
+#include "src/sgbdr.h"
 
 int main() {
     char command[256];
@@ -19,4 +19,4 @@ int main() {
     
     return 0;
 }
-`
+

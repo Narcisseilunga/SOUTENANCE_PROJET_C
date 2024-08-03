@@ -1,29 +1,29 @@
 #ifndef DATABASE_H
 #define DATABASE_H
+#include "sgbdr.h"
+/*   
+#define MAX_TABLES 100
+#define MAX_NAME_LENGTH 50
 
-#define MAX_TABLES 10
-#define MAX_FIELDS 10
+#define MAX_TABLES 100
+#define MAX_COLUMNS 100
+#define MAX_COLUMN_NAME_LENGTH 50
+#define MAX_TABLE_NAME_LENGTH 50
+#define MAX_STRING_LENGTH 100
+extern Table *database;
+typedef struct Table {
+    char name[MAX_NAME_LENGTH];
+    Column *columns;
+    int column_count;
+    int row_count;
+    Row *rows;
+    struct Table *next;
+    void **data;
 
-typedef enum { 
-    INT, 
-    STRING,
-    DECIMAL,
-    BINAIRE,
-    DATE } FieldType;
 
-typedef struct {
-    char name[30];
-    FieldType type;
-} Field;
-
-typedef struct {
-    char name[30];
-    Field fields[MAX_FIELDS];
-    int field_count;
+   
 } Table;
 
-void create_table(char *table_name);
-void add_field(char *table_name, char *field_name, FieldType type);
-void display_data(char *table_name);
+*/
 
-#endif // DATABASE_H
+#endif

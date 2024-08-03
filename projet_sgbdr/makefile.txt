@@ -1,0 +1,21 @@
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
+LDFLAGS =
+
+SRC = src/main.c src/sgbdr.c src/data.c
+OBJ = $(SRC:.c=.o)
+EXEC = sgbdr
+
+all: $(EXEC)
+
+$(EXEC): $(OBJ)
+ $(CC) $(LDFLAGS) -o $@ $^
+
+%.o: %.c
+ $(CC) $(CFLAGS) -o $@ -c $<
+
+clean:
+ rm -f $(OBJ)
+
+mrproper: clean
+ rm -f $(EXEC)

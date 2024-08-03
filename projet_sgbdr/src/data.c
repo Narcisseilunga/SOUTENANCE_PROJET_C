@@ -2,9 +2,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "database.h"
 #include "sgbdr.h"
 
-extern Table *database;
+
 void insert_data(char *table_name, void **data) {
     Table *table = find_table(table_name);
     if (table == NULL) {
@@ -236,7 +237,7 @@ void join_tables(char *table1_name, char *table2_name, char *join_column) {
 void select_data(char *table_name, char *condition) {
     Table *table = find_table(table_name);
     if (table == NULL) {
-        printf("Erreur : Table '%s' non trouvée.\n", table_name);
+        printf("Erreur : Table '%s' non trouvee.\n", table_name);
         return;
     }
 
@@ -254,7 +255,7 @@ void select_data(char *table_name, char *condition) {
     }
 
     if (column_index == -1) {
-        printf("Erreur : Colonne '%s' non trouvée dans la table '%s'.\n", column_name, table_name);
+        printf("Erreur : Colonne '%s' non trouvee dans la table '%s'.\n", column_name, table_name);
         return;
     }
 
@@ -295,6 +296,7 @@ void select_data(char *table_name, char *condition) {
         }
     }
 }
+
 int compare_values(void *a, void *b, ColumnType type) {
     if (type == INT) {
         return (*(int *)a - *(int *)b);

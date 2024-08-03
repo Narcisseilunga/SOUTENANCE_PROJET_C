@@ -2,8 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "sgbdr.h"
-void display_data(char *table_name);
-void create_table(char *name, Column *columns, int column_count);
+
 void interpret_command(char *command);
 int main() {
     char command[256];

@@ -1,10 +1,13 @@
-#ifndef SGBDR_H
-#define SGBDR_H
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+
+
+#ifndef SGBDR_H
+#define SGBDR_H
+
 #define MAX_TABLES 100
 #define MAX_COLUMNS 100
 #define MAX_COLUMN_NAME_LENGTH 50
@@ -13,7 +16,12 @@
 #define MAX_NAME_LENGTH 50
 
 
-typedef enum { INT, STRING, DATE } ColumnType;
+typedef enum {
+     INT, 
+    STRING,
+    DECIMAL,
+    BINAIRE,
+    DATE } ColumnType;
 
 typedef struct {
     char name[MAX_NAME_LENGTH];
@@ -33,23 +41,24 @@ typedef struct Table {
     Row *rows;
     struct Table *next;
     void **data;
+
+
    
 } Table;
-
 extern Table *database;
+
 
 void create_table(char *name, Column *columns, int column_count);
 void insert_data(char *table_name, void **values);
 void display_data(char *table_name);
 void delete_data(char *table_name, char *condition);
- void update_data(char *table_name, char *condition, void **new_data);
- void sort_data(char *table_name, char *column_name);
+void update_data(char *table_name, char *condition, void **new_data);
+void sort_data(char *table_name, char *column_name);
 void join_tables(char *table1_name, char *table2_name, char *join_column);
 Table *find_table(char *name);
 void interpret_command(char *command);
 
 #endif
-
 
 
 /*#ifndef SGBDR_H
